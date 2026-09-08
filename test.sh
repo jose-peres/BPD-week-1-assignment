@@ -1,6 +1,9 @@
 # Setup nvm and install pre-req
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-nvm install --lts
+if ! command -v node &> /dev/null; then
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  . "$HOME/.nvm/nvm.sh"
+  nvm install --lts
+fi
 npm install
 
 set -e  # Exit immediately if any command fails
